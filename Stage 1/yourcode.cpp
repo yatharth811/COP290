@@ -152,8 +152,8 @@ vff inmatrix(string fileName){
 
 void outmatrix(vff &res, string fileName){
 	fout.open(fileName);
-	fout << res.size() << endl;
 	fout << res[0].size() << endl;
+	fout << res.size() << endl;
 
 	// Writing matrix elements to the file.
 	forp(j,0,res[0].size()){
@@ -175,7 +175,7 @@ vf invector(string fileName){
 		exit(0);
 	}
 
-			// Reading vector dimension and elements from the input file.
+	// Reading vector dimension and elements from the input file.
 	fin >> n;
 	vf inputvector(n);
 	forp(i,0,n){
