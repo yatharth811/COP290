@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.html": "html",
+        "iostream": "cpp",
+        "tuple": "cpp",
+        "fstream": "cpp",
+        "xlocmes": "cpp",
+        "chrono": "cpp"
+    }
+}
