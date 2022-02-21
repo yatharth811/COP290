@@ -48,7 +48,7 @@ tuple<float*, int, int> input_vector(string filename){
 }
 
 // Function to multiply matrix using cblas available in openblas library
-float* openBlasMultiplication(float* input_matrix, float* weight_matrix, float* bias_matrix, int m, int n, int k){
+float* mklMultiplication(float* input_matrix, float* weight_matrix, float* bias_matrix, int m, int n, int k){
     // A -> m*k, B -> k*n, C -> m*n, alpha -> scale product, A -> array of float
     // beta -> scales C
 
@@ -66,13 +66,12 @@ void outmatrix(float* output_matrix, int column, int row,  string fileName){
 
 	// Writing matrix elements to the file.
 	for (int i=0; i<column*row; i++){
-        fout << *(output_matrix + i) << endl;
+        fout << fixed << setprecision(10) << *(output_matrix + i) << endl;
     }
 
 	fout.close();
 	return;
 }
-
 
 
 int main(int argc,char **argv){
@@ -95,7 +94,7 @@ int main(int argc,char **argv){
         int n3 = get<1>(temp3), m3 = get<2>(temp3);
 
         auto start = chrono::steady_clock::now();
-        float* output_matrix = openBlasMultiplication(abc, weight, bias, m3, n3, n1);
+        float* output_matrix = mklMultiplication(abc, weight, bias, m3, n3, n1);
         auto end = chrono::steady_clock::now();
 
         cout << "Elapsed time in milliseconds: "

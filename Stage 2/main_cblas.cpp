@@ -66,7 +66,7 @@ void outmatrix(float* output_matrix, int column, int row,  string fileName){
 
 	// Writing matrix elements to the file.
 	for (int i=0; i<column*row; i++){
-        fout << *(output_matrix + i) << endl;
+        fout << fixed << setprecision(10) << *(output_matrix + i) << endl;
     }
 
 	fout.close();

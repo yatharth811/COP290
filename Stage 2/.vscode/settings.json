@@ -5,6 +5,9 @@
         "tuple": "cpp",
         "fstream": "cpp",
         "xlocmes": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "vector": "cpp",
+        "ios": "cpp",
+        "iosfwd": "cpp"
     }
 }
