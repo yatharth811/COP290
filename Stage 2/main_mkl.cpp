@@ -31,7 +31,7 @@ tuple<float*, int, int> input_vector(string filename){
     ifstream myfile;
     myfile.open(filename);
     if(myfile.fail()){
-        cerr<<"File doen't exist\n";
+        cerr<< filename << " doesn't exist" << endl;
         exit(0);
     }
 
@@ -77,10 +77,10 @@ void outmatrix(float* output_matrix, int column, int row,  string fileName){
 
 int main(int argc,char **argv){
     
-    string s = argv[1];
+    string s = argv[1], how = argv[2];
     
-    if (s == "fullyconnected" && (argc == 6)){
-        string a = argv[2], b = argv[3], c = argv[4], d = argv[5]; 
+    if (s == "fullyconnected" && (argc == 7) && how == "mkl"){
+        string a = argv[3], b = argv[4], c = argv[5], d = argv[6]; 
 
         tff temp1 = input_vector(a);
         float* abc = get<0>(temp1);
@@ -105,6 +105,9 @@ int main(int argc,char **argv){
         outmatrix(output_matrix, n3, m3, d);
 
         delete[] abc, weight, bias;
+    }
+    else{
+        cout << "You have passed either insufficient or wrong arguments. Refer readme for correct format. Have a nice day!" << endl;
     }
 
     return 0;
